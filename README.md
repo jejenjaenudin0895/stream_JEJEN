@@ -51,3 +51,46 @@ Lakukan commit hasil jawaban Soal 4 dengan pesan "P1: Jawaban Soal 4" **done**
 
 ![Screenshoot stream_jejen](images/JawabanSoal4.png)
 
+**Soal 5**
+Jelaskan perbedaan menggunakan listen dan await for (langkah 9) !
+
+**listen**
+
+.listen() adalah metode yang digunakan untuk "mendengarkan" stream dan mengeksekusi callback setiap kali stream mengeluarkan nilai baru.
+
+
+**Kelebihan**:
+
+-Tidak menghalangi jalannya eksekusi kode lainnya (non-blocking).
+
+- Ideal ketika Anda ingin stream terus berlanjut tanpa harus menunggu secara eksplisit setiap nilai stream yang 
+  diterima.
+
+**Kekurangan**:
+
+- Karena tidak ada mekanisme untuk menunggu atau menghentikan stream, kita tidak bisa langsung melakukan 
+  tindakan lain setelah mendengarkan stream. Kode akan langsung melanjutkan eksekusi tanpa menunggu stream selesai.
+
+- Tidak bisa menghentikan stream di tengah jalan secara langsung (diperlukan manajemen manual).
+
+**await for**
+
+await for adalah cara untuk menunggu dan menangani setiap nilai yang dikeluarkan oleh stream satu per satu.
+
+**Kelebihan**:
+
+- Menunggu setiap nilai stream secara berurutan, yang berguna jika Anda perlu 
+  memproses stream secara sekuensial.
+
+- Penanganan yang lebih jelas dan mudah untuk kasus di mana Anda memerlukan 
+  tindakan berurutan untuk setiap item stream.
+
+**Kekurangan**:
+
+- Blocking: Ini menghalangi eksekusi program sementara Anda menunggu stream selesai, jadi jika stream tidak 
+  mengeluarkan data cepat, bisa membuat UI terasa "terhenti" sementara.
+
+- Tidak ada cara untuk berhenti mendengarkan stream lebih awal dengan cara yang langsung (berbeda dengan 
+  .listen() yang memberikan kontrol lebih besar).
+
+  Lakukan commit hasil jawaban Soal 5 dengan pesan "P1: Jawaban Soal 5"
