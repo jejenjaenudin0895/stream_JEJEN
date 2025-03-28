@@ -1,6 +1,7 @@
 # stream_jejen
 
-A new Flutter project.
+## **Praktikum 1: Dart Streams**
+
 
 ## Getting Started
 **Soal 1**
@@ -93,4 +94,30 @@ await for adalah cara untuk menunggu dan menangani setiap nilai yang dikeluarkan
 - Tidak ada cara untuk berhenti mendengarkan stream lebih awal dengan cara yang langsung (berbeda dengan 
   .listen() yang memberikan kontrol lebih besar).
 
-  Lakukan commit hasil jawaban Soal 5 dengan pesan "P1: Jawaban Soal 5"
+  Lakukan commit hasil jawaban Soal 5 dengan pesan "P1: Jawaban Soal 5" (**done**)
+
+## **Praktikum 2: Stream controllers dan sinks**
+
+**Soal 6**
+
+Jelaskan maksud kode langkah 8 dan 10 tersebut!
+
+**Pada langkah 8** kode yang digunakan ialah initState() yang digunakan untuk mendengarkan stream (numberStreamController.stream) ketika widget pertama kali diinisialisasi.
+
+**Pada langkah 10** kode yang digunakan ialah addRandomNumber(), Pada kode ini, bertujuan untuk menambahkan data baru ke stream.
+
+Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+
+![Screenshoot stream_jejen](images/JawabanSoal5.png)
+
+Lalu lakukan commit dengan pesan "P2: Jawaban Soal 6". (**done**)
+
+
+**Soal 7**
+Jelaskan maksud kode langkah 13 sampai 15 tersebut!
+
+Kembalikan kode seperti semula pada Langkah 15, comment addError() agar Anda dapat melanjutkan ke praktikum 3 berikutnya.
+
+Lalu lakukan commit dengan pesan "P2: Jawaban Soal 7".
+
+![Screenshoot stream_jejen](images/JawabanSoal7.png)
