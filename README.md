@@ -116,7 +116,41 @@ Lalu lakukan commit dengan pesan "P2: Jawaban Soal 6". (**done**)
 **Soal 7**
 Jelaskan maksud kode langkah 13 sampai 15 tersebut!
 
-Kembalikan kode seperti semula pada Langkah 15, comment addError() agar Anda dapat melanjutkan ke praktikum 3 berikutnya.
+langkah ke 13
+
+berikut masud dari kode pada langkah ke 13
+
+pada langkah tersebut mempunyai method yang berisikan controller.sink dan addError('error')
+
+- method controller.sink Ini adalah objek StreamController. StreamController digunakan untuk membuat dan 
+  mengelola stream, serta untuk menambah data atau error ke stream.
+
+- sink: sink adalah bagian dari StreamController yang digunakan untuk menambah data atau error ke dalam stream. 
+  Sink menerima input berupa data biasa atau error yang akan disalurkan ke stream dan diterima oleh pendengar (listeners) yang terhubung dengan stream tersebut.
+
+- addError: Ini adalah metode dari sink yang digunakan untuk mengirimkan error event ke stream. Ketika addError 
+  dipanggil, stream akan mengirimkan error ke semua listener yang sedang mendengarkan stream ini. Error ini bisa berupa apa saja, biasanya berupa objek atau pesan yang menyatakan ada masalah atau kondisi error yang terjadi di dalam aliran data.
+
+- 'error': Ini adalah parameter yang diteruskan ke addError. Dalam hal ini, parameter 'error' adalah string 
+  yang menunjukkan pesan error yang ingin Anda kirimkan ke stream. Anda bisa menggantinya dengan objek lain, seperti instance dari kelas custom yang berisi detail error.
+
+berikut masud dari kode pada langkah ke 14
+
+
+- stream.listen() adalah cara untuk mulai mendengarkan event yang datang dari stream.
+
+- Di dalam listen(), kita menyertakan callback yang akan dijalankan setiap kali ada event baru yang diterima 
+  oleh stream.
+
+- (event) adalah parameter yang mewakili data yang diterima dari stream. Setiap kali stream menghasilkan data 
+  baru (melalui add() atau addError()), callback ini akan dipanggil dengan event terbaru.
+
+berikut masud dari kode pada langkah ke 15
+
+numberStream.addError() adalah suatu cara untuk mengirimkan error ke dalam stream menggunakan StreamController di Dart. Dengan menggunakan metode ini, Anda dapat menambahkan kesalahan (error) ke dalam stream yang sedang dipantau. Ketika error tersebut terjadi, listener yang mendengarkan stream ini akan menangani error tersebut.
+
+
+Kembalikan kode seperti semula pada Langkah 15, comment addError() agar Anda dapat melanjutkan ke praktikum 3 berikutnya. **done**
 
 Lalu lakukan commit dengan pesan "P2: Jawaban Soal 7".
 
