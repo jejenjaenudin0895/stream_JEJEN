@@ -3,14 +3,11 @@
 A new Flutter project.
 
 ## Getting Started
+**Soal 1**
 
-This project is a starting point for a Flutter application.
+Tambahkan nama panggilan Anda pada title app sebagai identitas hasil pekerjaan Anda. **done**
+Gantilah warna tema aplikasi sesuai kesukaan Anda. **done**
+Lakukan commit hasil jawaban Soal 1 dengan pesan "P1: Jawaban Soal 1"
 
-A few resources to get you started if this is your first Flutter project:
+![Screenshoot stream_jejen](images/JawabanSoal1.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
