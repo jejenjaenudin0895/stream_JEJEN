@@ -42,5 +42,12 @@ Apa maksud isi perintah kode tersebut?
 
 Lakukan commit hasil jawaban Soal 3 dengan pesan "P1: Jawaban Soal 3"
 
+![Screenshoot stream_jejen](images/JawabanSoal3.png)
 
+**Soal 4**
+Capture hasil praktikum Anda berupa GIF dan lampirkan di README. **done**
+
+Lakukan commit hasil jawaban Soal 4 dengan pesan "P1: Jawaban Soal 4" **done**
+
+![Screenshoot stream_jejen](images/JawabanSoal4.png)
 
