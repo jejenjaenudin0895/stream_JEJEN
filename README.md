@@ -387,3 +387,5 @@ Error: A value of type 'String' can't be assigned to a variable of type 'num'.
           lastNumber += ' $event -' ;
 
 Terjadi karena saya menambahkan += sebuah nilai bertipe String (' $event -') ke dalam variabel lastNumber yang bertipe num. Tipe num mencakup tipe data int dan double, namun tidak bisa langsung menyimpan sebuah String.
+
+solusinya merubah int lastnumber = 0; menjadi Sting lastnumber = '';
