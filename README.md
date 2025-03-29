@@ -310,7 +310,8 @@ Lalu lakukan commit dengan pesan "P3: Jawaban Soal 8".
 
 
 **Soal 9**
-Jelaskan maksud kode langkah 2, 6 dan 8 tersebut!
+
+- Jelaskan maksud kode langkah 2, 6 dan 8 tersebut!
 
 **langkah 2**
 Penjelasan dari kode dibawah ini adalah
@@ -373,7 +374,16 @@ void initState() {
 
  Dari langkah ke 8 kita menambahkan widget addRandomNumber(), yang bertujuan untuk menambahkan angka acak ke dalam stream jika stream masih terbuka. Jika stream telah ditutup, maka akan mengatur lastNumber menjadi -1 dan memperbarui state. Berikut adalah penjelasan langkah demi langkah.
 
-Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
-Lalu lakukan commit dengan pesan "P4: Jawaban Soal 9".
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+  Lalu lakukan commit dengan pesan "P4: Jawaban Soal 9".
 
 ![Screenshoot stream_jejen](images/JawabanSoal9.png)
+
+**Soal 10**
+
+Jelaskan mengapa error itu bisa terjadi ?
+
+Error: A value of type 'String' can't be assigned to a variable of type 'num'.
+          lastNumber += ' $event -' ;
+
+Terjadi karena saya menambahkan += sebuah nilai bertipe String (' $event -') ke dalam variabel lastNumber yang bertipe num. Tipe num mencakup tipe data int dan double, namun tidak bisa langsung menyimpan sebuah String.
