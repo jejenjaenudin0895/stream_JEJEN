@@ -154,4 +154,156 @@ Kembalikan kode seperti semula pada Langkah 15, comment addError() agar Anda dap
 
 Lalu lakukan commit dengan pesan "P2: Jawaban Soal 7".
 
+berikut screenshoot hasil perubahan dari langkah 13 ke 15
 ![Screenshoot stream_jejen](images/JawabanSoal7.png)
+
+
+## **Praktikum 3: Injeksi data ke streams**
+
+**Soal 8**
+Jelaskan maksud kode langkah 1-3 tersebut!
+
+**langkah 1**
+jelaskan dari kode late StreamTransformer transformer;
+
+    - StreamTransformer adalah sebuah kelas yang disediakan oleh Dart untuk mengubah (transformasi) data yang 
+      lewat dalam sebuah stream. Kelas ini memungkinkan kita untuk melakukan operasi tertentu terhadap data stream sebelum data tersebut diproses lebih lanjut. Dengan menggunakan StreamTransformer, kita dapat mengubah data yang datang dalam stream, misalnya dengan memetakan atau memfilter data tersebut.
+
+    - late adalah sebuah keyword dalam Dart yang digunakan untuk menandakan bahwa variabel tersebut akan 
+      diinisialisasi pada suatu waktu di kemudian hari, namun belum tentu langsung saat deklarasi. late digunakan ketika Anda yakin bahwa variabel tersebut akan diinisialisasi sebelum digunakan, tetapi tidak bisa diinisialisasi saat deklarasi. Misalnya, karena variabel ini membutuhkan nilai yang didapat dari logika lain (misalnya, dalam initState() di Flutter).
+
+    - StreamTransformer<int, int> adalah tipe parameter untuk StreamTransformer. Ini menunjukkan bahwa stream 
+      input (sebelum ditransformasi) berisi data bertipe int, dan output (setelah ditransformasi) juga akan menghasilkan data bertipe int. Dalam kasus ini, input dan output dari stream transformer adalah data integer.
+
+
+**lahkah 2**
+
+transformer = StreamTransformer<int, int>.fromHandlers(
+  handleData: (value, sink) {
+    sink.add(value * 10);  // Mengalikan data yang diterima dengan 10 dan mengirimkannya ke sink
+  },
+  handleError: (error, trace, sink) {
+    sink.add(-1);  // Jika ada error, outputkan -1
+  },
+  handleDone: (sink) => sink.close(),  // Menutup sink setelah stream selesai
+);
+
+
+Penjelasan:
+1. StreamTransformer<int, int>:
+
+    - StreamTransformer<T, R> adalah kelas yang memungkinkan Anda untuk mengubah atau memproses data stream yang masuk.
+
+    - T adalah tipe data yang diterima oleh stream (input), dan R adalah tipe data yang akan dihasilkan oleh stream (output).
+
+    - Dalam kode ini, T dan R keduanya adalah int. Ini berarti bahwa input dan output stream akan berupa integer.
+
+2. fromHandlers:
+    - fromHandlers adalah sebuah metode untuk membuat StreamTransformer dari beberapa handler (penangan data, error, dan selesai).
+
+    - Dalam hal ini, kita membuat handler untuk menangani data, error, dan kapan stream selesai.
+
+3. handleData:
+
+    - handleData: (value, sink) adalah callback yang dipanggil setiap kali data baru diterima dari stream.
+
+    - value adalah data yang diterima dari stream.
+
+    - sink.add(value * 10): Setiap nilai yang diterima akan dikalikan dengan 10, dan kemudian dikirimkan 
+      (ditambahkan) ke sink. sink adalah tempat di mana data yang diproses akan dikirimkan ke penerima stream selanjutnya.
+
+    - Misalnya, jika stream menerima nilai 2, maka nilai yang dikirimkan setelah transformasi 
+      adalah 2 * 10 = 20.
+
+4. handleError:
+
+    - handleError: (error, trace, sink) adalah callback yang dipanggil jika terjadi error dalam stream.
+
+    - sink.add(-1): Jika terjadi error, kita mengirimkan nilai -1 ke sink untuk menunjukkan bahwa ada masalah. 
+      Dalam hal ini, data -1 akan diteruskan ke penerima stream selanjutnya.
+
+    - error adalah objek error yang terjadi, dan trace adalah jejak stack error tersebut.
+
+5. handleDone:
+
+    - handleDone: (sink) => sink.close() adalah callback yang dipanggil ketika stream selesai dan tidak ada 
+      data lagi yang akan diterima.
+
+    - sink.close() menandakan bahwa stream selesai, dan sink (output stream) akan ditutup.
+
+**lahkah 3**
+
+penjelasan kode berikut 
+
+stream
+        .transform(transformer)
+        .listen(
+            (event){
+      setState(() {
+        lastNumber = event;
+      });
+    }).onError((error){
+      setState(() {
+        lastNumber = -1;
+      });
+    });
+
+    super.initState();
+
+1. stream:
+
+    - Ini adalah sebuah objek Stream. Sebuah stream adalah urutan event/data yang dapat diteruskan secara 
+      asinkron ke dalam aplikasi Anda.
+
+    - Dalam kode ini, stream bisa jadi stream yang sudah ada sebelumnya (misalnya, sebuah stream yang 
+      mengalirkan data atau angka).
+
+2. .transform(transformer):
+
+    - transform(transformer) adalah sebuah metode yang mengubah aliran data dari stream menggunakan sebuah 
+      StreamTransformer.
+
+    - transformer adalah objek StreamTransformer yang digunakan untuk memodifikasi data yang lewat di stream. 
+      Misalnya, setiap data yang diterima dari stream akan diproses terlebih dahulu menggunakan transformer, seperti mengalikan nilai atau melakukan operasi lain pada data sebelum data itu diteruskan ke penerima berikutnya.
+
+    - Pada kode sebelumnya, transformer yang digunakan adalah sebuah transformer yang mengalikan 
+      nilai dengan 10.
+
+3. .listen(event)
+
+    - listen adalah metode yang digunakan untuk mulai mendengarkan (atau menerima) data yang datang dari stream.
+
+    - Parameter pertama pada listen adalah callback yang menangani data yang diterima. Setiap kali data baru 
+      diterima, callback ini akan dipanggil.
+
+    - (event) mewakili data yang diterima dari stream setelah diproses oleh transformer. Data ini bisa berupa 
+      nilai yang sudah dimodifikasi, seperti nilai yang dikalikan dengan 10 dalam contoh sebelumnya.
+
+    - setState(() { lastNumber = event; }): Ini adalah cara untuk memperbarui state dalam widget. Ketika data 
+      baru diterima, nilai lastNumber akan diubah dan UI akan diperbarui dengan nilai yang baru.
+
+4. .onError(error)
+
+    - onError adalah callback yang dipanggil jika terjadi error dalam stream. Artinya, jika stream mengalami 
+      masalah atau error, callback ini akan menangani error tersebut.
+
+    - (error) adalah objek error yang terjadi pada stream.
+
+    - Dalam kode ini, jika ada error, setState(() { lastNumber = -1; }) akan dipanggil, yang berarti UI akan 
+      diperbarui untuk menunjukkan nilai -1 sebagai tanda ada kesalahan.
+
+
+
+5. super.initState();
+
+    - Baris ini memanggil initState() dari superclass (dalam hal ini, State dari widget). initState() adalah 
+      metode yang dipanggil saat state pertama kali diinisialisasi dan biasanya digunakan untuk menyiapkan stream atau melakukan pengaturan awal.
+
+    - Biasanya, super.initState() harus dipanggil di dalam initState() untuk memastikan bahwa setup dasar dari 
+      state dilakukan dengan benar.
+
+
+Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+Lalu lakukan commit dengan pesan "P3: Jawaban Soal 8".
+
+![Screenshoot stream_jejen](images/JawabanSoal8.png)
