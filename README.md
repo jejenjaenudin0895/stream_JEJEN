@@ -381,11 +381,24 @@ void initState() {
 
 **Soal 10**
 
-Jelaskan mengapa error itu bisa terjadi ?
+- Jelaskan mengapa error itu bisa terjadi ?
 
-Error: A value of type 'String' can't be assigned to a variable of type 'num'.
+- Error: A value of type 'String' can't be assigned to a variable of type 'num'.
           lastNumber += ' $event -' ;
 
-Terjadi karena saya menambahkan += sebuah nilai bertipe String (' $event -') ke dalam variabel lastNumber yang bertipe num. Tipe num mencakup tipe data int dan double, namun tidak bisa langsung menyimpan sebuah String.
+- Terjadi karena saya menambahkan += sebuah nilai bertipe String (' $event -') ke dalam variabel lastNumber 
+  yang bertipe num. Tipe num mencakup tipe data int dan double, namun tidak bisa langsung menyimpan sebuah String.
 
-solusinya merubah int lastnumber = 0; menjadi Sting lastnumber = '';
+-  solusinya merubah int lastnumber = 0; menjadi String lastnumber = '';
+
+**Soal 11**
+
+- Jelaskan mengapa hal itu bisa terjadi ?
+
+dikarnakan ada fungsi dari String lastnumber = ''; dimana lastNumber dideklarasikan sebagai sebuah variabel bertipe String yang dimulai dengan string kosong ''. Tujuan dari ini adalah untuk menyimpan hasil gabungan dari setiap event yang diterima dari stream.
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+- Lalu lakukan commit dengan pesan "P5: Jawaban Soal 10,11".
+
+![Screenshoot stream_jejen](images/JawabanSoal1011.png)
+
