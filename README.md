@@ -307,3 +307,73 @@ Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
 Lalu lakukan commit dengan pesan "P3: Jawaban Soal 8".
 
 ![Screenshoot stream_jejen](images/JawabanSoal8.png)
+
+
+**Soal 9**
+Jelaskan maksud kode langkah 2, 6 dan 8 tersebut!
+
+**langkah 2**
+Penjelasan dari kode dibawah ini adalah
+
+void initState() {
+    numberStream = NumberStream();
+    numberStreamController = numberStream.controller;
+    Stream stream = numberStreamController.stream;
+
+    subscription = stream.listen((event) {
+        setState(() {
+            lastNumber = event;
+        });
+    });
+}
+
+1. initState():
+
+    - Ini adalah metode yang dipanggil pertama kali ketika objek State dari widget diinisialisasi. initState() 
+      adalah tempat yang tepat untuk melakukan pengaturan awal atau inisialisasi yang hanya perlu dilakukan sekali sebelum widget ditampilkan di layar.
+
+2. numberStream = NumberStream();
+
+    - Di sini, Anda membuat instance dari kelas NumberStream. Kelas ini tampaknya berfungsi untuk mengelola 
+      stream dan StreamController. NumberStream bisa jadi adalah kelas custom yang Anda buat untuk menangani stream dari angka-angka tertentu.
+
+    - NumberStream bertugas untuk mengelola aliran data, dan StreamController adalah komponen yang digunakan 
+      untuk menambah dan memancarkan data melalui stream.
+
+3. numberStreamController = numberStream.controller;
+
+    - Di sini, Anda mengakses StreamController dari objek numberStream dan menyimpannya dalam variabel 
+      umberStreamController. StreamController ini akan digunakan untuk mengendalikan aliran data yang akan dipancarkan melalui stream.
+
+4. Stream stream = numberStreamController.stream
+
+    - Anda mengambil objek stream dari StreamController yang dipegang oleh numberStreamController.
+    - stream adalah objek yang mewakili aliran data yang dapat didengarkan oleh komponen lain. Dalam hal ini, 
+      Anda berlangganan ke stream ini untuk mendapatkan data.
+
+5. subscription = stream.listen((event) {...})
+
+    - stream.listen adalah cara untuk berlangganan ke stream dan mendapatkan notifikasi setiap kali ada data 
+      baru yang dipancarkan.
+
+    - Dalam callback (event) {...}, setiap kali stream mengeluarkan (emit) sebuah nilai (dalam hal ini angka), 
+      fungsi ini akan dipanggil.
+
+    - Di dalam callback ini, Anda menggunakan setState untuk memperbarui UI setiap kali nilai baru diterima 
+      dari stream. Ini memungkinkan aplikasi untuk secara dinamis menampilkan nilai terbaru dari stream.
+
+    - setState() digunakan untuk memberi tahu Flutter bahwa state telah berubah dan widget perlu diperbarui.  
+      Dalam kasus ini, nilai lastNumber diperbarui dengan data terbaru yang diterima dari stream.
+
+
+**langkah 6**
+
+  subscription.cancel(); Berfungsi untuk membatalkan langganan (subscription) yang telah dibuat sebelumnya pada sebuah stream.
+**langkah 8**
+
+ Dari langkah ke 8 kita menambahkan widget addRandomNumber(), yang bertujuan untuk menambahkan angka acak ke dalam stream jika stream masih terbuka. Jika stream telah ditutup, maka akan mengatur lastNumber menjadi -1 dan memperbarui state. Berikut adalah penjelasan langkah demi langkah.
+
+Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+Lalu lakukan commit dengan pesan "P4: Jawaban Soal 9".
+
+![Screenshoot stream_jejen](images/JawabanSoal9.png)
